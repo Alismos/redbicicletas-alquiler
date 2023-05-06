@@ -1,0 +1,35 @@
+extends layout
+block content
+  a(href='/') Volver
+  br
+  br
+  br
+  h1 Mostrar bicicleta
+  br
+  br
+
+  //- h1=`Bicicleta ${bici.id}`
+
+  //-   h2=`Color: ${bici.color}`
+
+  //-   h2=`Modelo: ${bici.modelo}`
+
+  //-   h3=`Ubicacion: [${bici.lat}, ${bici.lng}]`
+
+  form()
+    label(for='id') ID:
+    input#id(type='text' name='id' value=`${bici.id}` , readonly)
+    br
+    label(for='color') Color:
+    input#id(type='text' name='color' value= `${bici.color}` , readonly)
+    br
+    label(for='modelo') Modelo:
+    input#id(type='text' name='modelo' value= `${bici.modelo}` , readonly)
+    br
+    label(for='lat') Latitud:
+    input#id(type='text' name='lat' value= `${bici.lat}` , readonly)
+    br
+    label(for='lng') Longitud:
+    input#id(type='text' name='lng' value= `${bici.lng}` , readonly )
+    br
+    br

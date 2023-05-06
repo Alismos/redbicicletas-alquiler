@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  a(href=`http://localhost:${process.env.REDBICICLETAS_BICICLETAS_PORT}`) Home
+  br
+  br
+  a(href='/create') Nueva Bicicleta
+  br
+  br
+  a(href='http://localhost:8065') Mostrar Mapa
+
+  table.table
+    thead
+      tr
+        th(scope='col') #
+        th(scope='col') Color
+        th(scope='col') Modelo
+        th(scope='col') Ubicacion
+        th(scope='col')
+        th(scope='col')
+    tbody
+      each bici in bicis
+        tr
+          td(scope='row')
+            =bici.id
+          td=bici.color
+          td=bici.modelo
+          td
+           a=`${bici.lat}, ${bici.lng}`
+          td
+            a(href='/'+bici.id+'/show') mostrar
+          td
+            a(href='/'+bici.id+'/update') editar
+          td
+            form.inline(method='post' action='/'+bici.id+'/delete')
+              input(type='hidden' name='id' value=bici.id)
+              button.link-button(type='submit' name='submit_param' value='submit_value' class='.btn')
+                ='Eliminar'
